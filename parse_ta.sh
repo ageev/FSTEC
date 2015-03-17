@@ -45,7 +45,27 @@ ta6=`cat $f | grep "Внешний нарушитель с высоким пот
 		r6="0;"
 	fi
 
+dam1=`cat $f | grep "Нарушение конфиденциальности"`
+	if [ "$dam1" != "" ]; then 
+		d1="1;"
+	else 
+		d1="0;"
+	fi
 
-echo $r1$r2$r3$r4$r5$r6 >> ta.txt
+dam2=`cat $f | grep "Нарушение целостности"`
+	if [ "$dam2" != "" ]; then 
+		d2="1;"
+	else 
+		d2="0;"
+	fi
+
+dam3=`cat $f | grep "Нарушение доступности"`
+	if [ "$dam3" != "" ]; then 
+		d3="1;"
+	else 
+		d3="0;"
+	fi
+
+echo $r1$r2$r3$r4$r5$r6$d1$d2$d3 >> ta.txt
 
 done
