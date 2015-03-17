@@ -1,0 +1,22 @@
+#!/bin/bash
+
+FILES=./угрозы/*
+for f in $FILES
+do
+ta1=`cat $f | grep "Внутренний нарушитель с низким потенциалом"`
+	if [ "$ta1" != "" ]; then 
+		r1="1;"
+	else 
+		r1="0;"
+	fi
+
+ta2=`cat $f | grep "Внутренний нарушитель со средним потенциалом"`
+	if [ "$ta2" != "" ]; then 
+		r2="1;"
+	else 
+		r2="0;"
+	fi
+
+echo $r1$r2 >> ta.txt
+
+done
